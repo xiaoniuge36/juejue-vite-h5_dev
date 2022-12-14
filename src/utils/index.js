@@ -60,7 +60,7 @@ export const REFRESH_STATE = {
   pull: 1, // 下拉刷新（未满足刷新条件）
   drop: 2, // 释放立即刷新（满足刷新条件）
   loading: 3, // 加载中
-  success: 4, // 加载成功
+  success: 4, // 加载成功 11
   failure: 5, // 加载失败
 };
 
