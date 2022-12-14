@@ -12,7 +12,7 @@ module.exports = {
       ref: 'origin/main',
       repo: 'git@github.com:xiaoniuge36/juejue-vite-h5_dev.git',
       path: '/project/juejue-vite-h5_dev',
-      'post-deploy': 'git reset --hard && git checkout master && git pull && npm i --production=false && pm2 startOrReload ecosystem.config.js', // -production=false 下载全量包
+      'post-deploy': 'git reset --hard && git checkout master && git pull && npm i --production=false && pm2 startOrReload ecosystem.config.js', // 
       env: {
         NODE_ENV: 'production'
       }
