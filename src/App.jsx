@@ -5,7 +5,7 @@ import routes from '@/router'
 import 'zarm/dist/zarm.css'
 import NavBar from '@/components/NavBar'
 
-function App() {
+function App() { //更新
     const location = useLocation();
     const { pathname } = location // 获取当前路径
     const needNav = ['/', '/data', '/user'] // 需要底部导航栏的路径
