@@ -6,6 +6,7 @@ import dayjs from 'dayjs';
 import CustomIcon from '../CustomIcon'
 import PopupDate from '../PopupDate'
 import { get, typeMap, post } from '@/utils'
+
 import s from './style.module.less';
 
 const PopupAddBill = forwardRef(({ detail = {}, onReload }, ref) => {
@@ -15,28 +16,28 @@ const PopupAddBill = forwardRef(({ detail = {}, onReload }, ref) => {
   const [payType, setPayType] = useState('expense'); // 支出或收入类型
   const [expense, setExpense] = useState([]); // 支出类型数组
   const [income, setIncome] = useState([]); // 收入类型数组
-  const [currentType, setCurrentType] = useState({}); // 当前选择的类型
+  const [currentType, setCurrentType] = useState({});
   const [amount, setAmount] = useState(''); // 账单价格
   const [remark, setRemark] = useState(''); // 备注
   const [showRemark, setShowRemark] = useState(false); // 备注输入框
   const [date, setDate] = useState(new Date()); // 日期
  
 
-  useEffect(() => { // 初始化
-    if (detail.id) { // 有 id 说明是编辑账单
-      setPayType(detail.pay_type == 1 ? 'expense' : 'income') // 设置支出或收入类型
-      setCurrentType({ 
-        id: detail.type_id, 
+  useEffect(() => {
+    if (detail.id) {
+      setPayType(detail.pay_type == 1 ? 'expense' : 'income')
+      setCurrentType({
+        id: detail.type_id,
         name: detail.type_name
       })
-      setRemark(detail.remark); // 设置备注
-      setAmount(detail.amount); // 设置金额
-      setDate(dayjs(Number(detail.date)).$d); // 设置日期
+      setRemark(detail.remark)
+      setAmount(detail.amount)
+      setDate(dayjs(Number(detail.date)).$d)
     }
   }, [detail])
 
-  if (ref) { // 外部调用
-    ref.current = { // 暴露给外部的方法
+  if (ref) {
+    ref.current = {
       show: () => {
         setShow(true);
       },
@@ -104,15 +105,21 @@ const PopupAddBill = forwardRef(({ detail = {}, onReload }, ref) => {
       return
     }
     // 当输入的值为 '.' 且 已经存在 '.'，则不让其继续字符串相加。
-    if (value == '.' && amount.includes('.')) return
+    if (value == '.' && amount.includes('.')) {
+      Toast.show('只能输入一个小数点')
+      return
+    }
     // 小数点后保留两位，当超过两位时，不让其字符串继续相加。
-    if (value != '.' && amount.includes('.') && amount && amount.split('.')[1].length >= 2) return
+    if (value != '.' && amount.includes('.') && amount && amount.split('.')[1].length >= 2) {
+      Toast.show('小数点后最多保留两位')
+      return
+    }
     // amount += value
     setAmount(amount + value)
   }
   // 添加账单
   const addBill = async () => {
-    if (!amount) {
+    if (!amount|| amount == '.') {
       Toast.show('请输入具体金额')
       return
     }
@@ -191,8 +198,8 @@ const PopupAddBill = forwardRef(({ detail = {}, onReload }, ref) => {
           /> : <span onClick={() => setShowRemark(true)}>{remark || '添加备注'}</span>
         }
       </div>
-      <Keyboard type="price" onKeyClick={(value) => handleMoney(value)} />  {/* 数字键盘 */}
-      <PopupDate ref={dateRef} onSelect={selectDate} /> {/* 日期选择器 */}
+      <Keyboard type="price" onKeyClick={(value) => handleMoney(value)} />
+      <PopupDate ref={dateRef} onSelect={selectDate} />
     </div>
   </Popup>
 });

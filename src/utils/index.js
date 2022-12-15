@@ -4,6 +4,8 @@ export const get = axios.get;
 
 export const post = axios.post;
 
+const MODE = import.meta.env.MODE // 环境变量
+
 export const typeMap = {
   1: {
     icon: 'canyin'

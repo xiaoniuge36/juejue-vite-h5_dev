@@ -21,6 +21,7 @@ const UserInfo = () => {
   // 获取用户信息
   const getUserInfo = async () => {
     const { data } = await get('/api/user/getUser');
+    console.log(data)
     setUser(data);
     setAvatar(imgUrlTrans(data.avatar))
     setSignature(data.signature)
@@ -32,7 +33,6 @@ const UserInfo = () => {
       Toast.show('上传头像不得超过 200 KB！！')
       return
     }
-    // 上传头像 将其改造成一个 form-data 对象
     let formData = new FormData()
     formData.append('file', file.file)
     axios({
@@ -48,7 +48,6 @@ const UserInfo = () => {
     })
   }
 
-  //修改个性签名
   const save = async () => {
     const { data } = await post('/api/user/editUser', {
       signature,
