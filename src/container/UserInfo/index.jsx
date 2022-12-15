@@ -23,8 +23,8 @@ const UserInfo = () => {
     const { data } = await get('/api/user/getUser');
     console.log(data)
     setUser(data);
-    setAvatar(imgUrlTrans(data.avatar))
-    setSignature(data.signature)
+    setSignature(data.signature);
+    setAvatar(imgUrlTrans(data.avatar));
   };
 
   const handleSelect = (file) => {
