@@ -6,6 +6,8 @@ export const post = axios.post;
 
 const MODE = import.meta.env.MODE // 环境变量
 
+import { baseUrl } from 'config'
+
 export const typeMap = {
   1: {
     icon: 'canyin'
