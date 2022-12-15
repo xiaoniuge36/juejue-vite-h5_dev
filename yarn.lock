@@ -1900,7 +1900,7 @@
     "y18n" "^5.0.5"
     "yargs-parser" "^21.1.1"
 
-"zarm@^2.8.2":
+"zarm@^2.9.16":
   "integrity" "sha512-TzummUiqdHGZAAMlkz2x8SYPksYjryUpGJr2hrTYwGF7E/7VM7IcUBvNaMqHCm9VHQ2OQUWyPGxtjbMgjzApYQ=="
   "resolved" "https://registry.npmmirror.com/zarm/-/zarm-2.9.17.tgz"
   "version" "2.9.17"
