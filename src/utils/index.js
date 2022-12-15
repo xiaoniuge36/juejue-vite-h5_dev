@@ -81,7 +81,7 @@ export const imgUrlTrans = (url) => { // 图片地址转换
   if (url && url.startsWith('http')) {
     return url
   } else {
-    url = `${MODE == 'development' ? 'http://localhost:8066' : baseUrl}${url}`
+    url = `${MODE == 'development' ? 'http://localhost:8066' : 'http://116.204.107.20:8066'}${url}`
     return url
   }
 }
