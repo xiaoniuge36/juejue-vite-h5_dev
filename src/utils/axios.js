@@ -2,7 +2,7 @@ import axios from "axios";
 import { Toast } from "zarm";
 const MODE = import.meta.env.MODE; // 环境变量
 
-axios.defaults.baseURL = MODE == 'development' ? 'http://127.0.0.1:8066' : 'http://47.99.134.126:7009'
+axios.defaults.baseURL = MODE == 'development' ? 'http://127.0.0.1:8066' : 'http://116.204.107.20:8066'
 axios.defaults.withCredentials = true; //允许跨域请求携带cookie
 axios.defaults.headers["X-Requested-With"] = "XMLHttpRequest"; //设置请求头 为了让后端知道是ajax请求 从而不跳转登录页面 也不会报错 也可以不设置 但是后端要做处理 例如设置响应头 Access-Control-Allow-Origin 为* 但是这样会有安全隐患 会导致跨域请求伪造 从而导致安全问题 所以最好还是设置请求头 X-Requested-With 为 XMLHttpRequest 从而让后端知道是ajax请求 
 axios.defaults.headers["Authorization"] = `${localStorage.getItem("token") || null}`; // 从本地存储中获取token
