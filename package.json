@@ -22,7 +22,7 @@
     "react-dom": "17.0.0",
     "react-router-dom": "^6.4.4",
     "vite-plugin-style-import": "1.4.1",
-    "zarm": "^2.9.16"
+    "zarm": "^2.9.17"
   },
   "devDependencies": {
     "@types/react": "^18.0.24",
