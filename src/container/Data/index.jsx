@@ -111,7 +111,7 @@ function Data() {
       </div>
       <div className={s.structure}>
         <div className={s.head}>
-          <span className={s.title}>收支构成</span>
+          <span className={s.title}>收支分析</span>
           <div className={s.tab}>
             <span onClick={() => changeTotalType('expense')} className={cx({ [s.expense]: true, [s.active]: totalType == 'expense' })}>支出</span>
             <span onClick={() => changeTotalType('income')} className={cx({ [s.income]: true, [s.active]: totalType == 'income' })}>收入</span>
