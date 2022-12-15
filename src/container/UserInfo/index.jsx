@@ -24,7 +24,7 @@ const UserInfo = () => {
     console.log(data)
     setUser(data);
     setSignature(data.signature);
-    // setAvatar(imgUrlTrans(data.avatar));
+    setAvatar(imgUrlTrans(data.avatar));
   };
 
   const handleSelect = (file) => {
