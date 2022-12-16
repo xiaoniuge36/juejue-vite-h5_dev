@@ -31,6 +31,7 @@ function Home() {
 
   const getBillList = async () => {
     const { data } = await get(`/api/bill/list?date=${currentTime}&type_id=${currentSelect.id || 'all'}&page=${page}&page_size=5`);
+    console.log(data);
     // 下拉刷新 重置数据
     if (page === 1) { // page === 1 时，重置数据
       setList(data.list); // 重置数据
@@ -95,8 +96,8 @@ function Home() {
     <div className={s.home}>
       <div className={s.header}>
         <div className={s.dataWrap}>
-          <div className={s.in} >总收入：<b>¥ {totalExpense}</b></div>
-          <div className={s.out} >总支出：<b>¥ {totalIncome}</b></div>
+          <div className={s.in} >总收入：<b>¥ {totalIncome}</b></div>
+          <div className={s.out} >总支出：<b>¥ {totalExpense}</b></div>
         </div>
         <div className={s.typeWrap}>
           <div className={s.left} onClick={toggle} >
