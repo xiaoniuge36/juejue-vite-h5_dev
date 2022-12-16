@@ -31,7 +31,7 @@ function Data() {
     const { data } = await get(`/api/bill/data?date=${currentMonth}`);
     // 总收支
     setTotalExpense(data.total_expense); // 总支出
-    setTotalIncome(data.total_expense); // 总收入
+    setTotalIncome(data.total_income); // 总收入
     // 过滤支出和收入
     const expense_data = data.total_data.filter(item => item.pay_type == 1).sort((a, b) => b.number - a.number); // 过滤出账单类型为支出的项 并按照金额从大到小排序
     const income_data = data.total_data.filter(item => item.pay_type == 2).sort((a, b) => b.number - a.number); // 过滤出账单类型为收入的项 并按照金额从大到小排序
